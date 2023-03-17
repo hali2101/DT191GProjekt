@@ -1,0 +1,47 @@
+/* _content/GymBookingApp/Views/Shared/_Layout.cshtml.rz.scp.css */
+
+a.navbar-brand[b-nbxwczkbhd] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+a[b-nbxwczkbhd] {
+    color: #0077cc;
+}
+
+.btn-primary[b-nbxwczkbhd] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-nbxwczkbhd], .nav-pills .show > .nav-link[b-nbxwczkbhd] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top[b-nbxwczkbhd] {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom[b-nbxwczkbhd] {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-nbxwczkbhd] {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-nbxwczkbhd] {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.footer[b-nbxwczkbhd] {
+    position: absolute;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}

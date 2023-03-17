@@ -1,0 +1,31 @@
+@model bookingadmintest.Models.Booking
+
+@{
+    ViewData["Title"] = "Detaljer";
+}
+
+<h1 class="text-center">Detaljer</h1>
+
+<div class="card p-3 mb-3 mt-5" style="max-width: 800px;">
+    <h4 class="text-center">@Html.DisplayFor(model => model.Workout.WorkoutName)</h4>
+    <ul class="list-unstyled mx-5">
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.WorkoutDate): @Html.DisplayFor(model => model.Workout.WorkoutDate)
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.Instructor): @Html.DisplayFor(model => model.Workout.Instructor)
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.Duration): @Html.DisplayFor(model => model.Workout.Duration) min
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.Cost): @Html.DisplayFor(model => model.Workout.Cost) :-
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.BookedQuantity): @Html.DisplayFor(model => model.Workout.BookedQuantity) st
+        </li>
+    </ul>
+    <div class="text-center">
+        <a class="btn btn-secondary" asp-action="Index">Tillbaka</a>
+    </div>
+</div>

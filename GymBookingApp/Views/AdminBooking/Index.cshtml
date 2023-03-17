@@ -1,0 +1,33 @@
+@model IEnumerable<bookingadmintest.Models.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center mb-5 mt-5">Alla bokningar</h1>
+
+@foreach (var item in Model)
+{
+    <div class="card p-3 mb-3 mt-5" style="max-width: 800px;">
+        <h4 class="text-center">@Html.DisplayFor(modelItem => item.Workout.WorkoutName)</h4>
+        <ul class="list-unstyled mx-5">
+            <li>
+                @Html.DisplayNameFor(model => model.Workout.WorkoutDate): @Html.DisplayFor(modelItem => item.Workout.WorkoutDate)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.User.Email): @Html.DisplayFor(modelItem => item.User.Email)
+            </li>
+            <li>
+                Telefonnummer: @Html.DisplayFor(modelItem => item.User.PhoneNumber)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.BookingDate): @Html.DisplayFor(modelItem => item.BookingDate)
+            </li>
+        </ul>
+        <div class="text-center">
+            <a class="p-1 mx-3 btn btn-warning" asp-action="Details" asp-route-id="@item.Id">Detaljer</a>
+            <a class="p-1 mx-3 btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Radera</a>
+        </div>
+    </div>
+
+}

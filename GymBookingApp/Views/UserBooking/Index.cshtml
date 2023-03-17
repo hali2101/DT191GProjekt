@@ -1,0 +1,32 @@
+@model IEnumerable<bookingadmintest.Models.Booking>
+
+@{
+    ViewData["Title"] = "Bokningar";
+}
+
+<h1 class="text-center mb-5 mt-5">Mina bokningar</h1>
+
+@foreach (var item in Model)
+{
+    <div class="card p-3 mb-3 mt-5" style="max-width: 600px;">
+        <h4 class="text-center">@Html.DisplayFor(modelItem => item.Workout.WorkoutName)</h4>
+        <ul class="list-unstyled mx-5">
+            <li>
+                @Html.DisplayNameFor(model => model.Workout.WorkoutDate): @Html.DisplayFor(modelItem => item.Workout.WorkoutDate)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Workout.Duration): @Html.DisplayFor(modelItem => item.Workout.Duration) min
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Workout.Cost): @Html.DisplayFor(modelItem => item.Workout.Cost) :-
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.BookingDate): @Html.DisplayFor(modelItem => item.BookingDate)
+            </li>
+        </ul>
+        <div class="text-center mt-3">
+            <a class="p-1 mx-3 btn btn-warning" asp-action="Details" asp-route-id="@item.Id">Detaljer</a>
+            <a class="p-1 mx-3 btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Avboka</a>
+        </div>
+    </div>
+}

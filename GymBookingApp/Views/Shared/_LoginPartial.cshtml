@@ -1,0 +1,106 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    //hämtar in dagens veckodag
+    var weekday = DateTime.Today.DayOfWeek;
+    var month = DateTime.Today.Month;
+    //skapar en tom sträng för veckodagsnamnet och månad
+    string nameOfDay = "";
+    string nameOfMonth = "";
+    //switchsats för att byta ut namnet mot svenska
+    switch (weekday)
+    {
+        case DayOfWeek.Monday:
+            nameOfDay = "Måndag";
+            break;
+        case DayOfWeek.Tuesday:
+            nameOfDay = "Tisdag";
+            break;
+        case DayOfWeek.Wednesday:
+            nameOfDay = "Onsdag";
+            break;
+        case DayOfWeek.Thursday:
+            nameOfDay = "Torsdag";
+            break;
+        case DayOfWeek.Friday:
+            nameOfDay = "Fredag";
+            break;
+        case DayOfWeek.Saturday:
+            nameOfDay = "Lördag";
+            break;
+        case DayOfWeek.Sunday:
+            nameOfDay = "Söndag";
+            break;
+        default:
+            break;
+    }
+
+    switch (month)
+    {
+        case 1:
+            nameOfMonth = "Januari";
+            break;
+        case 2:
+            nameOfMonth = "Februari";
+            break;
+        case 3:
+            nameOfMonth = "Mars";
+            break;
+        case 4:
+            nameOfMonth = "April";
+            break;
+        case 5:
+            nameOfMonth = "Maj";
+            break;
+        case 6:
+            nameOfMonth = "Juni";
+            break;
+        case 7:
+            nameOfMonth = "Juli";
+            break;
+        case 8:
+            nameOfMonth = "Augusti";
+            break;
+        case 9:
+            nameOfMonth = "September";
+            break;
+        case 10:
+            nameOfMonth = "Oktober";
+            break;
+        case 11:
+            nameOfMonth = "November";
+            break;
+        case 12:
+            nameOfMonth = "December";
+            break;
+        default:
+            break;
+    }
+}
+
+
+<ul class="navbar-nav align-items-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <p class="nav-link text-white m-0">@nameOfDay @DateTime.Now.ToShortDateString().Substring(2, 2) @nameOfMonth</p>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link border text-light p-1 shadow-none">Logga ut</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Register">Registrera konto</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Login">Logga in</a>
+        </li>
+    }
+</ul>
+

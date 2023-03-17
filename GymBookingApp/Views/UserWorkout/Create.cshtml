@@ -1,0 +1,46 @@
+@model bookingadmintest.Models.Booking
+
+@{
+    ViewData["Title"] = "Boka";
+}
+
+<h1>Boka träningspass</h1>
+
+<hr />
+<h3 class="h4 text-center">Vill du boka detta pass?</h3>
+<div class="card p-3 mb-3 mt-5" style="max-width: 600px;">
+    <h4 class="text-center">@ViewBag.Workout.WorkoutName</h4>
+    <ul class="list-unstyled mx-5">
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.WorkoutDate): @ViewBag.Workout.WorkoutDate
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.Instructor): @ViewBag.Workout.Instructor
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.Duration): @ViewBag.Workout.Duration min
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.Cost): @ViewBag.Workout.Cost :-
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.Workout.BookedQuantity): @ViewBag.Workout.BookedQuantity st
+        </li>
+    </ul>
+
+    <form class="text-center" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <input type="hidden" value="@ViewBag.WorkoutId" asp-for="WorkoutId" />
+            <input type="hidden" value="@ViewBag.UserId" asp-for="UserId" />
+            <input type="submit" value="Boka" class="btn btn-success" /> |
+            <a class="btn btn-secondary" asp-action="Index">Tillbaka</a>
+        </div>
+    </form>
+    <span class="text-danger text-center mt-3 h4">@ViewBag.ErrorMessage</span>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

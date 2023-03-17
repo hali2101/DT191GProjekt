@@ -1,0 +1,62 @@
+@model IEnumerable<bookingadmintest.Models.Workout>
+
+@{
+    ViewData["Title"] = "Boka";
+
+}
+
+<h1 class="text-center mb-5 mt-5">Träningpass</h1>
+
+<p class="text-center h5">
+    @ViewBag.NoWorkouts
+</p>
+<div class=" text-center">
+    @foreach (var item in Model)
+    {
+        //knapp som refererar till action Index i controllern User för att filtrera efter medskickad parameter
+        <button onclick="location.href='@Url.Action("Index", "UserWorkout", new {item.WorkoutName})'" class="btn mx-4" style="background-color:pink;">@item.WorkoutName</button>
+    }
+</div>
+@foreach (var item in Model)
+{
+    <div class="card p-3 mb-3 mt-5" style="max-width: 800px;">
+        <h4 class="text-center">@Html.DisplayFor(modelItem => item.WorkoutName)</h4>
+        <ul class="list-unstyled mx-5">
+            <li>
+                @Html.DisplayNameFor(model => model.WorkoutDate): @Html.DisplayFor(modelItem => item.WorkoutDate)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Instructor): @Html.DisplayFor(modelItem => item.Instructor)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Duration): @Html.DisplayFor(modelItem => item.Duration) min
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Cost): @Html.DisplayFor(modelItem => item.Cost) :-
+            </li>
+
+            @if (item.BookedQuantity == 0)
+            {
+                //skriver ut fullbokat om antalet platser är noll
+                <li class="text-danger h3">
+                    Fullbokat!
+                </li>
+            }
+            else
+            {
+                <li>
+                    @Html.DisplayNameFor(model => model.BookedQuantity): @Html.DisplayFor(modelItem => item.BookedQuantity) st
+                </li>
+            }
+        </ul>
+
+        @if (item.BookedQuantity != 0)
+        {
+            //tar bort bokningsknapp ifall passet är fullbokat
+            <div class="text-center">
+                <a class="text-white btn btn-success" asp-route-id="@item.Id" asp-action="Create">Boka</a>
+            </div>
+        }
+
+    </div>
+}

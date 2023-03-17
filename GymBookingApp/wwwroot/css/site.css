@@ -1,0 +1,48 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 2em;
+    letter-spacing: 0.3px;
+}
+
+main {
+    min-height: 80vh;
+}
+
+/*CARDS*/
+
+.card {
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 15px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+}
+
+.btn {
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 15px 0px;
+}
+
+/*IMAGES*/
+img {
+    max-width: 100%;
+    height: auto;
+}

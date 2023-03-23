@@ -13,3 +13,4 @@ Webbplatsen som skapats har fått följande funktionalitet:
 *	Möjlighet att se tillagda träningspass av icke inloggade användare
 
 
+Demofilm över projektarbetet: https://www.youtube.com/watch?v=3be6sMib4_Q
